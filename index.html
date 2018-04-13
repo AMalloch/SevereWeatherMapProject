@@ -2,11 +2,24 @@
 <html>
 <head>
 <title>Weather Map Project</title>
+<script type='text/javascript' src='config.js'></script>
+<script type='text/javascript' src='script.js'></script>
 <!-- script with link to the library -->
+<script type='text/javascript' src='config.js'></script>
+<script type='text/javascript' src='script.js'></script>
 <script type="text/javascript"  src="//cdn.aerisjs.com/aeris.min.js"></script>
 <!--stylesheet and a link to another library -->
 <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.css"/>
 <script type="text/javascript"  src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.js"></script>
+<!-- added a config to hide id and secret -->
+<script type="text/javascript">
+
+aeris.config.set ({
+apiId: config.ID;
+apiSecret: config.SECRET;
+});
+
+</script>
 
 </head>
 <body>
