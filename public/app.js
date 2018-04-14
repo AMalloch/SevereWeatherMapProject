@@ -11,8 +11,30 @@ const makeRequest = function(url, callback){
 const requestComplete = function(){
   if(this.status !== 200) return;
   const jsonString = this.responseText;
-  const lightningInfo = JSON.parse(jsonString);
+  const dataInfo = JSON.parse(jsonString);
+  const stormCellInfo = dataInfo.response
+  populateSelect(stormCellInfo);
 }
+
+const populateStormList = function(stormCellInfo){
+  const select = document.getElementById("storm-list")
+  for (let storm of stormCellInfo.responce){
+    const li = document.createElement("li");
+    li.innerText = storm.traits;
+    select.appendChild(li);
+  };
+};
+
+const populateSelect = function(stormCellInfo){
+  const select = document.getElementById("storm-list");
+    debugger;
+  stormCellInfo.forEach(function(storm, index){
+    const option = document.createElement("option");
+    option.innerText = storm.place.name;
+    option.value = index;
+    select.appendChild(option);
+  });
+};
 
 const initialize = function(){
 
