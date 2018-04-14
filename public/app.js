@@ -1,8 +1,8 @@
 const initialize = function(){
 
   aeris.config.set({
-    apiId:
-    apiSecret:
+    apiId: config.ID,
+    apiSecret: config.SECRET
   });
 
   const main = document.getElementById('main');
@@ -17,3 +17,13 @@ const initialize = function(){
 }
 
 window.addEventListener('load', initialize);
+
+// // mymodule.js
+// module.exports = {
+//    hello: function() {
+//       return "Hello";
+//    }
+// }
+// // server.js
+// const myModule = require('./mymodule');
+// let val = myModule.hello(); // val is "Hello"
