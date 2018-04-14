@@ -5,25 +5,16 @@ const initialize = function(){
     apiSecret: config.SECRET
   });
 
-  const main = document.getElementById('main');
-  var map = new aeris.maps.Map(main, {
-    zoom: 3,
-    center: [39.7,-93.38],
-    baseLayer: new aeris.maps.layers.AerisTile({
-      tileType: 'flat-dk',
-      zIndex: 1
-    })
-  });
+  const container = document.getElementById('main');
+  const zoom = 3;
+  const coords = [39.7,-93.38];
+  const baseLayer = new aeris.maps.layers.AerisTile({
+    tileType: 'flat-dk',
+    zIndex: 1
+  })
+
+  const map = new MapWrap(container, zoom, coords, baseLayer);
+  
 }
 
 window.addEventListener('load', initialize);
-
-// // mymodule.js
-// module.exports = {
-//    hello: function() {
-//       return "Hello";
-//    }
-// }
-// // server.js
-// const myModule = require('./mymodule');
-// let val = myModule.hello(); // val is "Hello"
