@@ -46,9 +46,10 @@ MapWrap.prototype.displayTropicalStorms = function () {
   });
 };
 
-MapWrap.prototype.remove = function () {
-    this.aeris.layers.AerisTile.remove();
-};
+// MapWrap.prototype.remove = function () {
+//     array =  this.aerisMap.layers.objects
+//     debugger;
+// };
 
 //
 // const main = document.getElementById('main');
