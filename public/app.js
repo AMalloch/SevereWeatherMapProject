@@ -40,11 +40,14 @@ const initialize = function(){
 
   const map = new MapWrap(container, zoom, coords, baseLayer);
 
+  const adminButton = document.getElementById('display-admin-button');
+  adminButton.addEventListener('click', map.displayAdmin.bind(map));
+
   const lightningButton = document.getElementById('display-lightning-button');
   lightningButton.addEventListener('click', map.displayLightningStrikes.bind(map));
 
-  const adminButton = document.getElementById('display-admin-button');
-  adminButton.addEventListener('click', map.displayAdmin.bind(map));
+  const stormCellButton = document.getElementById('display-stormCell-button');
+  stormCellButton.addEventListener('click', map.displayStormCells.bind(map));
 
 }
 

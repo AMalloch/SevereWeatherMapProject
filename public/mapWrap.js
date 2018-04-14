@@ -21,6 +21,14 @@ MapWrap.prototype.displayAdmin = function () {
     map: this.aerisMap
   });
 };
+
+MapWrap.prototype.displayStormCells = function () {
+  new aeris.maps.layers.AerisTile({
+    tileType: 'stormcells',
+    zIndex: 12,
+    map: this.aerisMap
+  });
+};
 //
 // const main = document.getElementById('main');
 // var map = new aeris.maps.Map(main, {
