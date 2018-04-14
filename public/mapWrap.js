@@ -37,6 +37,19 @@ MapWrap.prototype.displayLightningDensity = function () {
     map: this.aerisMap
   });
 };
+
+MapWrap.prototype.displayTropicalStorms = function () {
+  new aeris.maps.layers.AerisTile({
+    tileType: 'tropical',
+    zIndex: 10,
+    map: this.aerisMap
+  });
+};
+
+MapWrap.prototype.remove = function () {
+    this.aeris.layers.AerisTile.remove();
+};
+
 //
 // const main = document.getElementById('main');
 // var map = new aeris.maps.Map(main, {

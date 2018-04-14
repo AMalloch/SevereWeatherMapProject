@@ -52,6 +52,12 @@ const initialize = function(){
   const lightningDensityButton = document.getElementById('display-lightningDensity-button');
   lightningDensityButton.addEventListener('click', map.displayLightningDensity.bind(map));
 
+  const tropicalStormsButton = document.getElementById('display-tropicalStorms-button');
+  tropicalStormsButton.addEventListener('click', map.displayTropicalStorms.bind(map));
+
+  const removeButton = document.getElementById('remove-button');
+  removeButton.addEventListener('click', map.remove.bind(map));
+
 }
 
 window.addEventListener('load', initialize);
