@@ -16,15 +16,6 @@ const requestComplete = function(){
   populateSelect(stormCellInfo);
 }
 
-const populateStormList = function(stormCellInfo){
-  const select = document.getElementById("storm-list")
-  for (let storm of stormCellInfo.responce){
-    const li = document.createElement("li");
-    li.innerText = storm.traits;
-    select.appendChild(li);
-  };
-};
-
 const populateSelect = function(stormCellInfo){
   const select = document.getElementById("storm-list");
     debugger;
@@ -34,6 +25,13 @@ const populateSelect = function(stormCellInfo){
     option.value = index;
     select.appendChild(option);
   });
+};
+
+const getStorm = function(stormCellInfo){
+  const selected_storm = document.querySelector('select');
+  selected_beer.addEventListener('change', function(){
+    let storm = stormCellInfo[this.value]
+  })
 };
 
 const initialize = function(){
