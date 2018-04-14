@@ -43,6 +43,9 @@ const initialize = function(){
   const lightningButton = document.getElementById('display-lightning-button');
   lightningButton.addEventListener('click', map.displayLightningStrikes.bind(map));
 
+  const adminButton = document.getElementById('display-admin-button');
+  adminButton.addEventListener('click', map.displayAdmin.bind(map));
+
 }
 
 window.addEventListener('load', initialize);

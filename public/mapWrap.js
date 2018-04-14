@@ -13,6 +13,14 @@ MapWrap.prototype.displayLightningStrikes = function () {
     map: this.aerisMap
   });
 };
+
+MapWrap.prototype.displayAdmin = function () {
+  new aeris.maps.layers.AerisTile({
+    tileType: 'admin',
+    zIndex: 11,
+    map: this.aerisMap
+  });
+};
 //
 // const main = document.getElementById('main');
 // var map = new aeris.maps.Map(main, {
