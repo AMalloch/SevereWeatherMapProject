@@ -5,6 +5,14 @@ const MapWrap = function(container, zoom, coords, baseLayer){
     baseLayer: baseLayer
   });
 };
+
+MapWrap.prototype.displayLightningStrikes = function () {
+  new aeris.maps.layers.AerisTile({
+    tileType: 'lightning-strikes',
+    zIndex: 7,
+    map: this.aerisMap
+  });
+};
 //
 // const main = document.getElementById('main');
 // var map = new aeris.maps.Map(main, {
