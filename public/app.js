@@ -14,9 +14,11 @@ const requestComplete = function(){
   const dataInfo = JSON.parse(jsonString);
   const stormCellInfo = dataInfo.response
   populateSelect(stormCellInfo);
+  getStorm(stormCellInfo);
 }
 
 const populateSelect = function(stormCellInfo){
+  debugger;
   const select = document.getElementById("storm-list");
     debugger;
   stormCellInfo.forEach(function(storm, index){
@@ -29,10 +31,35 @@ const populateSelect = function(stormCellInfo){
 
 const getStorm = function(stormCellInfo){
   const selected_storm = document.querySelector('select');
-  selected_beer.addEventListener('change', function(){
+  selected_storm.addEventListener('change', function(){
     let storm = stormCellInfo[this.value]
+    getDetails(storm);
   })
 };
+
+const getDetails = function(storm){
+  const div = document.getElementById("storm-info");
+  const name = document.createElement("p");
+  const threat = document.createElement("p");
+  const general = document.createElement("p");
+  const hail = document.createElement("p");
+  const tornado = document.createElement("p");
+  const rotating = document.createElement("p");
+  name.innerText = "Location: " + storm.place.name;
+  threat.innerText = "Threat Level: " + storm.traits.threat;
+  general.innerText = "General Storm: " + storm.traits.general;
+  hail.innerText = "Hail Storm: " + storm.traits.hail;
+  tornado.innerText = "Tornado: " + storm.traits.tornado;
+  rotating.innerText = "Rotating: " + storm.traits.rotating;
+  debugger;
+  div.appendChild(name);
+  div.appendChild(threat);
+  div.appendChild(general);
+  div.appendChild(hail);
+  div.appendChild(tornado);
+  div.appendChild(rotating);
+  return div;
+}
 
 const initialize = function(){
 
