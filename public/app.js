@@ -49,6 +49,9 @@ const initialize = function(){
   const stormCellButton = document.getElementById('display-stormCell-button');
   stormCellButton.addEventListener('click', map.displayStormCells.bind(map));
 
+  const lightningDensityButton = document.getElementById('display-lightningDensity-button');
+  lightningDensityButton.addEventListener('click', map.displayLightningDensity.bind(map));
+
 }
 
 window.addEventListener('load', initialize);

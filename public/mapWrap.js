@@ -29,6 +29,14 @@ MapWrap.prototype.displayStormCells = function () {
     map: this.aerisMap
   });
 };
+
+MapWrap.prototype.displayLightningDensity = function () {
+  new aeris.maps.layers.AerisTile({
+    tileType: 'lightning-strike-density',
+    zIndex: 9,
+    map: this.aerisMap
+  });
+};
 //
 // const main = document.getElementById('main');
 // var map = new aeris.maps.Map(main, {
