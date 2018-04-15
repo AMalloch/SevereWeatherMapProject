@@ -36,7 +36,6 @@ const getStorm = function(stormCellInfo){
 };
 
 const getDetails = function(storm){
-  debugger;
   const div = document.getElementById("storm-info");
   const name = document.createElement("p");
   const threat = document.createElement("p");
@@ -61,9 +60,8 @@ const getDetails = function(storm){
 
 const initialize = function(){
 
-  const url = "https://api.aerisapi.com/stormcells/closest?p=35005&limit=5&radius=50mi&client_id="+config.ID+"&client_secret="+config.SECRET;
+  const url = "https://api.aerisapi.com/stormcells/closest?p=35005&limit=5&radius=100mi&client_id="+config.ID+"&client_secret="+config.SECRET;
   makeRequest(url, requestComplete);
-  debugger;
 
   aeris.config.set({
     apiId: config.ID,
@@ -79,13 +77,22 @@ const initialize = function(){
     tileType: 'flat-dk',
     zIndex: 1
   })
-
   const map = new MapWrap(container, zoom, coords, baseLayer);
-  const location = 'birmingham,al'
   const view = new Aeris.wxblox.views.NearbyObservations('#weatherBlox');
-  view.load({
-	   p: location
-  });
+
+  const load = function(){
+    const location = document.getElementById("location").value;
+    view.load({
+	     p: location
+     });
+  };
+
+  // const map = new MapWrap(container, zoom, coords, baseLayer);
+  // const location = 'birmingham,al'
+  // const view = new Aeris.wxblox.views.NearbyObservations('#weatherBlox');
+  // view.load({
+	//    p: location
+  // });
 
   const adminButton = document.getElementById('display-admin-button');
   adminButton.addEventListener('click', map.displayAdmin.bind(map));
@@ -104,6 +111,9 @@ const initialize = function(){
 
   const tropicalStormsButton = document.getElementById('display-tropicalStorms-button');
   tropicalStormsButton.addEventListener('click', map.displayTropicalStorms.bind(map));
+
+  const loadButton = document.getElementById('load-button');
+  loadButton.addEventListener('click', load);
 
   // const removeButton = document.getElementById('remove-button');
   // removeButton.addEventListener('click', map.remove.bind(map));
