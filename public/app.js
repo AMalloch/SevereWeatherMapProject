@@ -13,14 +13,13 @@ const requestComplete = function(){
   const jsonString = this.responseText;
   const dataInfo = JSON.parse(jsonString);
   const stormCellInfo = dataInfo.response
+  debugger;
   populateSelect(stormCellInfo);
   getStorm(stormCellInfo);
 }
 
 const populateSelect = function(stormCellInfo){
-  debugger;
   const select = document.getElementById("storm-list");
-    debugger;
   stormCellInfo.forEach(function(storm, index){
     const option = document.createElement("option");
     option.innerText = storm.place.name;
@@ -38,6 +37,7 @@ const getStorm = function(stormCellInfo){
 };
 
 const getDetails = function(storm){
+  debugger;
   const div = document.getElementById("storm-info");
   const name = document.createElement("p");
   const threat = document.createElement("p");
@@ -63,13 +63,16 @@ const getDetails = function(storm){
 
 const initialize = function(){
 
-  const url = "https://api.aerisapi.com/stormcells/closest?p=55403&limit=5&radius=50mi&client_id="+config.ID+"&client_secret="+config.SECRET;
+  const url = "https://api.aerisapi.com/stormcells/closest?p=35005&limit=5&radius=50mi&client_id="+config.ID+"&client_secret="+config.SECRET;
   makeRequest(url, requestComplete);
+  debugger;
 
   aeris.config.set({
     apiId: config.ID,
     apiSecret: config.SECRET
   });
+
+  Aeris.wxblox.setAccess(config.ID, config.SECRET);
 
   const container = document.getElementById('main');
   const zoom = 3;
@@ -80,6 +83,11 @@ const initialize = function(){
   })
 
   const map = new MapWrap(container, zoom, coords, baseLayer);
+
+  var view = new Aeris.wxblox.views.NearbyObservations('#weatherBlox');
+  view.load({
+	   p: 'birmingham,al'
+  });
 
   const adminButton = document.getElementById('display-admin-button');
   adminButton.addEventListener('click', map.displayAdmin.bind(map));

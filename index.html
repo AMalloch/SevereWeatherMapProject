@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <title>Weather Map Project</title>
+  <link rel="stylesheet" href="https://cdn.aerisapi.com/wxblox/aeris-wxblox.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.css"/>
   <link rel="stylesheet" href="main.css"/>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.js"></script>
   <script type="text/javascript" src="https://cdn.aerisjs.com/aeris.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdn.aerisapi.com/wxblox/aeris-wxblox.min.js"></script>
   <script type='text/javascript' src='config.js'></script>
   <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript" src="mapWrap.js"></script>
@@ -22,8 +24,9 @@
   <button type="button" name="button" id="display-tropicalStorms-button">Tropical Storms</button>
   <button type="button" name="button" id="remove-button">Remove</button>
   <select id="storm-list">
-    <option disabled selected>Nearby Storm Locations</option>
+    <option disabled selected>Nearby Storm Information</option>
   </select>
   <div id="storm-info"></div>
+  <div id="weatherBlox"></div>
 </body>
 </html>
