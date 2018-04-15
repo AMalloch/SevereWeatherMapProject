@@ -46,6 +46,14 @@ MapWrap.prototype.displayTropicalStorms = function () {
   });
 };
 
+MapWrap.prototype.displayRadar = function () {
+  new aeris.maps.layers.AerisTile({
+    tileType: 'radar',
+    zIndex: 4,
+    map: this.aerisMap
+  });
+};
+
 // MapWrap.prototype.remove = function () {
 //     array =  this.aerisMap.layers.objects
 //     debugger;

@@ -13,7 +13,6 @@ const requestComplete = function(){
   const jsonString = this.responseText;
   const dataInfo = JSON.parse(jsonString);
   const stormCellInfo = dataInfo.response
-  debugger;
   populateSelect(stormCellInfo);
   getStorm(stormCellInfo);
 }
@@ -51,7 +50,6 @@ const getDetails = function(storm){
   hail.innerText = "Hail Storm: " + storm.traits.hail;
   tornado.innerText = "Tornado: " + storm.traits.tornado;
   rotating.innerText = "Rotating: " + storm.traits.rotating;
-  debugger;
   div.appendChild(name);
   div.appendChild(threat);
   div.appendChild(general);
@@ -83,14 +81,17 @@ const initialize = function(){
   })
 
   const map = new MapWrap(container, zoom, coords, baseLayer);
-
-  var view = new Aeris.wxblox.views.NearbyObservations('#weatherBlox');
+  const location = 'birmingham,al'
+  const view = new Aeris.wxblox.views.NearbyObservations('#weatherBlox');
   view.load({
-	   p: 'birmingham,al'
+	   p: location
   });
 
   const adminButton = document.getElementById('display-admin-button');
   adminButton.addEventListener('click', map.displayAdmin.bind(map));
+
+  const radarButton = document.getElementById('display-radar-button');
+  radarButton.addEventListener('click', map.displayAdmin.bind(map));
 
   const lightningButton = document.getElementById('display-lightning-button');
   lightningButton.addEventListener('click', map.displayLightningStrikes.bind(map));
